@@ -1,2 +1,18 @@
-<h1>Players#show</h1>
-<p>Find me in app/views/players/show.html.erb</p>
+<h4><%= @player.name %></h4>
+<p>Wins: <%= @player.wins %></p>
+<p>Losses: <%= @player.losses %></p>
+<% if(@player.alive) %>
+  <p>Still alive!</p>
+<% else %>
+  <p>Dead</p>
+<% end %>
+<div>
+  <%= link_to "Edit player", edit_player_path(@player) %>
+</div>
+<div><%= link_to "Delete player", player_path(@player),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+</div>
+<div>
+  <%= link_to "Back to all players", root_path %>
+</div>
