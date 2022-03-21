@@ -45,6 +45,12 @@ class PlayersController < ApplicationController
     redirect_to root_path
   end
 
+  def shot
+    @player = Player.find(params[:id])
+    @player.update(alive: false)
+    redirect_to root_path
+  end
+
   private
       # Only allow a list of trusted parameters through.
       def player_params
