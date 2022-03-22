@@ -2,3 +2,4 @@
 
 <%= render "form", player: @player %>
 
+<div><%= link_to 'Delete player', @player, method: :delete, data: { confirm: 'Are you sure?' } %></div>

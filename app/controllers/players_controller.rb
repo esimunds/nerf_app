@@ -48,6 +48,13 @@ class PlayersController < ApplicationController
   def shot
     @player = Player.find(params[:id])
     @player.update(alive: false)
+    redirect_to @player
+  end
+
+  def reset_game
+    Player.all.each do |player|
+      player.update(alive: true)
+    end
     redirect_to root_path
   end
 

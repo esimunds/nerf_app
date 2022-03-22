@@ -1,34 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Players</h1>
+<h1>Nerf game</h1>
 
 <table>
   <thead>
     <tr>
       <th>Name</th>
-      <th>Alive</th>
       <th>Wins</th>
       <th>Losses</th>
-      <th colspan="4"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @players.each do |player| %>
       <tr>
-        <td><%= player.name %></td>
-        <td><%= player.alive %></td>
+        <td><%= link_to player.name, player %></td>
         <td><%= player.wins %></td>
         <td><%= player.losses %></td>
-        <td><%= link_to 'View', player %></td>
-        <td><%= link_to 'Edit', edit_player_path(player) %></td>
-        <td><%= link_to 'Delete', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= button_to 'Shot', player_shot_path(id: player.id), method: :patch, remote: true %></td>
+        <td><%= link_to 'Edit/Delete', edit_player_path(player) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
 <%= link_to 'New Player', new_player_path %>
+<%= button_to 'New Game', players_reset_path, method: :patch%>

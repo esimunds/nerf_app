@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :players
 
   patch 'shot' => 'players#shot', as: :player_shot
+  patch 'reset_game' => 'players#reset_game', as: :players_reset
 end
