@@ -18,7 +18,7 @@ class PlayersController < ApplicationController
     @player.alive = true
 
     if @player.save
-      redirect_to player_url(@player)
+      redirect_to root_path
     else
       render :new
     end
