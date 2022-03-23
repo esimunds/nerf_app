@@ -1,0 +1,14 @@
+<h1>Edit Role</h1>
+<%= form_with model: @role do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% @role.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+<div><%= link_to 'Delete role', @role, method: :delete, data: { confirm: 'Are you sure?' } %></div>

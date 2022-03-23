@@ -1,12 +1,10 @@
 <h4><%= @player.name %></h4>
-
 <% if(@player.alive) %>
   <p>Still alive!</p>
 <% else %>
   <p>Dead</p>
 <% end %>
 <div><%= button_to 'I\'ve been shot!', player_shot_path(id: @player.id), method: :patch%></div>
-
 <div>
   <%= link_to "Back to all players", root_path %>
 </div>

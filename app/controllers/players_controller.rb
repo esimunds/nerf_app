@@ -1,6 +1,7 @@
 class PlayersController < ApplicationController
   def index
     @players = Player.all
+    @roles = Role.all
   end
 
   def show
@@ -59,8 +60,9 @@ class PlayersController < ApplicationController
   end
 
   private
-      # Only allow a list of trusted parameters through.
-      def player_params
-        params.require(:player).permit(:name, :wins, :losses, :alive)
-      end
+
+  # Only allow a list of trusted parameters through.
+  def player_params
+    params.require(:player).permit(:name, :wins, :losses, :alive)
+  end
 end

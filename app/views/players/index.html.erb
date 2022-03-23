@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Nerf game</h1>
+<%= button_to 'New Game', players_reset_path, method: :patch%>
+<h2>Players</h2>
 <p><%=@players.count%> players</p>
 <table>
   <thead>
@@ -11,7 +12,6 @@
       <th colspan="1"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @players.each do |player| %>
       <tr>
@@ -23,6 +23,15 @@
     <% end %>
   </tbody>
 </table>
-
 <%= link_to 'New Player', new_player_path %>
-<%= button_to 'New Game', players_reset_path, method: :patch%>
+<h2>Available roles</h2>
+<p><%=@roles.count%> roles</p>
+<table>
+  <tbody>
+    <% @roles.each do |role| %>
+      <td><%= role.name %></td>
+      <td><%= link_to 'Edit/Delete', edit_role_path(role) %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
