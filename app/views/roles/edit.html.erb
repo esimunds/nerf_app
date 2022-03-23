@@ -8,6 +8,13 @@
     <% end %>
   </div>
   <div>
+    <%= form.label :team %><br>
+    <%= form.text_field :team %>
+    <% @role.errors.full_messages_for(:team).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

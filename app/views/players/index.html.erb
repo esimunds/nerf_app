@@ -27,9 +27,17 @@
 <h2>Available roles</h2>
 <p><%=@roles.count%> roles</p>
 <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Team</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
   <tbody>
     <% @roles.each do |role| %>
       <td><%= role.name %></td>
+      <td><%= role.team %></td>
       <td><%= link_to 'Edit/Delete', edit_role_path(role) %></td>
     </tr>
   <% end %>
