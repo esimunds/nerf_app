@@ -4,7 +4,11 @@
 <% else %>
   <p>Dead</p>
 <% end %>
-<div><%= button_to 'I\'ve been shot!', player_shot_path(id: @player.id), method: :patch%></div>
+<% if(@player.alive) %>
+  <div><%= button_to 'I\'ve been shot!', player_shot_path(id: @player.id), method: :patch%></div>
+<% else %>
+  <div><%= button_to 'Oops, still alive', player_shot_path(id: @player.id), method: :patch%></div>
+<% end %>
 <div>
   <%= link_to "Back to all players", root_path %>
 </div>

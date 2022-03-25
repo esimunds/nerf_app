@@ -48,7 +48,7 @@ class PlayersController < ApplicationController
 
   def shot
     @player = Player.find(params[:id])
-    @player.update(alive: false)
+    @player.toggle!(:alive)
     redirect_to @player
   end
 
